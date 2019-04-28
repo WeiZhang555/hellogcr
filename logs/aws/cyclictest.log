@@ -1,0 +1,4 @@
+cyclictest -D 20s -q -p 99 failed with Unable to change scheduling policy!
+either run as root or join realtime group
+
+exit status 1

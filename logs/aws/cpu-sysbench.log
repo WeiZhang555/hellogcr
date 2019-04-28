@@ -1,0 +1,27 @@
+sysbench --test=cpu --cpu-max-prime=20000 run output is :
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 1
+
+Doing CPU performance benchmark
+
+Threads started!
+Done.
+
+Maximum prime number checked in CPU test: 20000
+
+
+Test execution summary:
+    total time:                          35.3415s
+    total number of events:              10000
+    total time taken by event execution: 35.3319
+    per-request statistics:
+         min:                                  2.87ms
+         avg:                                  3.53ms
+         max:                                  9.11ms
+         approx.  95 percentile:               3.76ms
+
+Threads fairness:
+    events (avg/stddev):           10000.0000/0.00
+    execution time (avg/stddev):   35.3319/0.00

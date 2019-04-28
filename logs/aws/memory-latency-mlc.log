@@ -1,0 +1,10 @@
+mlc --latency_matrix -r -e output is :
+Intel(R) Memory Latency Checker - v3.6
+Command line parameters: --latency_matrix -r -e 
+
+Using buffer size of 200.000MiB
+Measuring idle latencies (in ns)...
+        Numa node
+Numa node        0  
+       0    alloc_mem_onnode(): unable to mbind: : Operation not permitted
+Buffer allocation failed!
