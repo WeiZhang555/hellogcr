@@ -1,0 +1,295 @@
+cpu benchmark: unix bench
+<html>
+<head><title>504 Gateway Time-out</title></head>
+<body bgcolor="white">
+<center><h1>504 Gateway Time-out</h1></center>
+</body>
+</html>
+cpu benchmark: sysbench
+sysbench --test=cpu --cpu-max-prime=20000 run output is :
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 1
+
+Doing CPU performance benchmark
+
+Threads started!
+Done.
+
+Maximum prime number checked in CPU test: 20000
+
+
+Test execution summary:
+    total time:                          36.8906s
+    total number of events:              10000
+    total time taken by event execution: 36.8845
+    per-request statistics:
+         min:                                  2.77ms
+         avg:                                  3.69ms
+         max:                                 18.04ms
+         approx.  95 percentile:               7.00ms
+
+Threads fairness:
+    events (avg/stddev):           10000.0000/0.00
+    execution time (avg/stddev):   36.8845/0.00
+
+
+memory bandwidth: sysbench
+sysbench --test=memory --memory-block-size=8K --memory-total-size=10G run output is :
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 1
+
+Doing memory operations speed test
+Memory block size: 8K
+
+Memory transfer size: 10240M
+
+Memory operations type: write
+Memory scope type: global
+Threads started!
+Done.
+
+Operations performed: 1310720 (514889.54 ops/sec)
+
+10240.00 MB transferred (4022.57 MB/sec)
+
+
+Test execution summary:
+    total time:                          2.5456s
+    total number of events:              1310720
+    total time taken by event execution: 2.3178
+    per-request statistics:
+         min:                                  0.00ms
+         avg:                                  0.00ms
+         max:                                  9.02ms
+         approx.  95 percentile:               0.00ms
+
+Threads fairness:
+    events (avg/stddev):           1310720.0000/0.00
+    execution time (avg/stddev):   2.3178/0.00
+
+
+memory bandwidth: stream
+stream output is :
+-------------------------------------------------------------
+STREAM version $Revision: 5.10 $
+-------------------------------------------------------------
+This system uses 8 bytes per array element.
+-------------------------------------------------------------
+Array size = 64000000 (elements), Offset = 0 (elements)
+Memory per array = 488.3 MiB (= 0.5 GiB).
+Total memory required = 1464.8 MiB (= 1.4 GiB).
+Each kernel will be executed 10 times.
+ The *best* time for each kernel (excluding the first iteration)
+ will be used to compute the reported bandwidth.
+-------------------------------------------------------------
+Number of Threads requested = 2
+Number of Threads counted = 2
+-------------------------------------------------------------
+Your clock granularity/precision appears to be 1 microseconds.
+Each test below will take on the order of 59413 microseconds.
+   (= 59413 clock ticks)
+Increase the size of the arrays if this shows that
+you are not getting at least 20 clock ticks per test.
+-------------------------------------------------------------
+WARNING -- The above is only a rough guideline.
+For best results, please be sure you know the
+precision of your system timer.
+-------------------------------------------------------------
+Function    Best Rate MB/s  Avg time     Min time     Max time
+Copy:           14665.6     0.090138     0.069823     0.100932
+Scale:          13188.1     0.104001     0.077646     0.121300
+Add:            13655.2     0.143356     0.112485     0.171921
+Triad:          13548.3     0.144501     0.113372     0.166071
+-------------------------------------------------------------
+Solution Validates: avg error less than 1.000000e-13 on all three arrays
+-------------------------------------------------------------
+
+memory bandwidth: stream
+stream output is :
+-------------------------------------------------------------
+STREAM version $Revision: 5.10 $
+-------------------------------------------------------------
+This system uses 8 bytes per array element.
+-------------------------------------------------------------
+Array size = 64000000 (elements), Offset = 0 (elements)
+Memory per array = 488.3 MiB (= 0.5 GiB).
+Total memory required = 1464.8 MiB (= 1.4 GiB).
+Each kernel will be executed 10 times.
+ The *best* time for each kernel (excluding the first iteration)
+ will be used to compute the reported bandwidth.
+-------------------------------------------------------------
+Number of Threads requested = 2
+Number of Threads counted = 2
+-------------------------------------------------------------
+Your clock granularity/precision appears to be 1 microseconds.
+Each test below will take on the order of 65042 microseconds.
+   (= 65042 clock ticks)
+Increase the size of the arrays if this shows that
+you are not getting at least 20 clock ticks per test.
+-------------------------------------------------------------
+WARNING -- The above is only a rough guideline.
+For best results, please be sure you know the
+precision of your system timer.
+-------------------------------------------------------------
+Function    Best Rate MB/s  Avg time     Min time     Max time
+Copy:           15387.8     0.085042     0.066546     0.098222
+Scale:          11957.9     0.110001     0.085634     0.127057
+Add:            12229.2     0.143883     0.125601     0.167430
+Triad:          12433.5     0.157828     0.123537     0.171594
+-------------------------------------------------------------
+Solution Validates: avg error less than 1.000000e-13 on all three arrays
+-------------------------------------------------------------
+
+IO: iozone 1M write
+iozone -e -r 1M -s 3G -i 0 -I -w  -f /file -+n output is :
+	Iozone: Performance Test of File I/O
+	        Version $Revision: 3.487 $
+		Compiled for 64 bit mode.
+		Build: linux 
+
+	Contributors:William Norcott, Don Capps, Isom Crawford, Kirby Collins
+	             Al Slater, Scott Rhine, Mike Wisner, Ken Goss
+	             Steve Landherr, Brad Smith, Mark Kelly, Dr. Alain CYR,
+	             Randy Dunlap, Mark Montague, Dan Million, Gavin Brebner,
+	             Jean-Marc Zucconi, Jeff Blomberg, Benny Halevy, Dave Boone,
+	             Erik Habbinga, Kris Strecker, Walter Wong, Joshua Root,
+	             Fabrice Bacchella, Zhenghua Xue, Qin Li, Darren Sawyer,
+	             Vangel Bojaxhi, Ben England, Vikentsi Lapa,
+	             Alexey Skidanov, Sudhir Kumar.
+
+	Run began: Sun Apr 28 08:11:21 2019
+
+	Include fsync in write timing
+	Record Size 1024 kB
+	File size set to 3145728 kB
+	O_DIRECT feature enabled
+	Setting no_unlink
+	No retest option selected
+	Command line used: iozone -e -r 1M -s 3G -i 0 -I -w -f /file -+n
+	Output is in kBytes/sec
+	Time Resolution = 0.000001 seconds.
+	Processor cache size set to 1024 kBytes.
+	Processor cache line size set to 32 bytes.
+	File stride size set to 17 * record size.
+                                                              random    random     bkwd    record    stride                                    
+              kB  reclen    write  rewrite    read    reread    read     write     read   rewrite      read   fwrite frewrite    fread  freread
+         3145728    1024   144940        0                                                                                                    
+
+iozone test complete.
+
+IO: iozone 1M read
+iozone -e -r 1M -s 3G -i 1 -I -w  -f /file -+n output is :
+	Iozone: Performance Test of File I/O
+	        Version $Revision: 3.487 $
+		Compiled for 64 bit mode.
+		Build: linux 
+
+	Contributors:William Norcott, Don Capps, Isom Crawford, Kirby Collins
+	             Al Slater, Scott Rhine, Mike Wisner, Ken Goss
+	             Steve Landherr, Brad Smith, Mark Kelly, Dr. Alain CYR,
+	             Randy Dunlap, Mark Montague, Dan Million, Gavin Brebner,
+	             Jean-Marc Zucconi, Jeff Blomberg, Benny Halevy, Dave Boone,
+	             Erik Habbinga, Kris Strecker, Walter Wong, Joshua Root,
+	             Fabrice Bacchella, Zhenghua Xue, Qin Li, Darren Sawyer,
+	             Vangel Bojaxhi, Ben England, Vikentsi Lapa,
+	             Alexey Skidanov, Sudhir Kumar.
+
+	Run began: Sun Apr 28 08:11:43 2019
+
+	Include fsync in write timing
+	Record Size 1024 kB
+	File size set to 3145728 kB
+	O_DIRECT feature enabled
+	Setting no_unlink
+	No retest option selected
+	Command line used: iozone -e -r 1M -s 3G -i 1 -I -w -f /file -+n
+	Output is in kBytes/sec
+	Time Resolution = 0.000001 seconds.
+	Processor cache size set to 1024 kBytes.
+	Processor cache line size set to 32 bytes.
+	File stride size set to 17 * record size.
+                                                              random    random     bkwd    record    stride                                    
+              kB  reclen    write  rewrite    read    reread    read     write     read   rewrite      read   fwrite frewrite    fread  freread
+         3145728    1024                     551076        0                                                                                  
+
+iozone test complete.
+
+IO: iozone 4k write
+iozone -e -r 4k -s 3G -i 0 -I -w  -f /file -+n output is :
+	Iozone: Performance Test of File I/O
+	        Version $Revision: 3.487 $
+		Compiled for 64 bit mode.
+		Build: linux 
+
+	Contributors:William Norcott, Don Capps, Isom Crawford, Kirby Collins
+	             Al Slater, Scott Rhine, Mike Wisner, Ken Goss
+	             Steve Landherr, Brad Smith, Mark Kelly, Dr. Alain CYR,
+	             Randy Dunlap, Mark Montague, Dan Million, Gavin Brebner,
+	             Jean-Marc Zucconi, Jeff Blomberg, Benny Halevy, Dave Boone,
+	             Erik Habbinga, Kris Strecker, Walter Wong, Joshua Root,
+	             Fabrice Bacchella, Zhenghua Xue, Qin Li, Darren Sawyer,
+	             Vangel Bojaxhi, Ben England, Vikentsi Lapa,
+	             Alexey Skidanov, Sudhir Kumar.
+
+	Run began: Sun Apr 28 08:11:49 2019
+
+	Include fsync in write timing
+	Record Size 4 kB
+	File size set to 3145728 kB
+	O_DIRECT feature enabled
+	Setting no_unlink
+	No retest option selected
+	Command line used: iozone -e -r 4k -s 3G -i 0 -I -w -f /file -+n
+	Output is in kBytes/sec
+	Time Resolution = 0.000001 seconds.
+	Processor cache size set to 1024 kBytes.
+	Processor cache line size set to 32 bytes.
+	File stride size set to 17 * record size.
+                                                              random    random     bkwd    record    stride                                    
+              kB  reclen    write  rewrite    read    reread    read     write     read   rewrite      read   fwrite frewrite    fread  freread
+         3145728       4    18826        0                                                                                                    
+
+iozone test complete.
+
+IO: iozone 4k read
+iozone -e -r 4k -s 3G -i 1 -I -w  -f /file -+n output is :
+	Iozone: Performance Test of File I/O
+	        Version $Revision: 3.487 $
+		Compiled for 64 bit mode.
+		Build: linux 
+
+	Contributors:William Norcott, Don Capps, Isom Crawford, Kirby Collins
+	             Al Slater, Scott Rhine, Mike Wisner, Ken Goss
+	             Steve Landherr, Brad Smith, Mark Kelly, Dr. Alain CYR,
+	             Randy Dunlap, Mark Montague, Dan Million, Gavin Brebner,
+	             Jean-Marc Zucconi, Jeff Blomberg, Benny Halevy, Dave Boone,
+	             Erik Habbinga, Kris Strecker, Walter Wong, Joshua Root,
+	             Fabrice Bacchella, Zhenghua Xue, Qin Li, Darren Sawyer,
+	             Vangel Bojaxhi, Ben England, Vikentsi Lapa,
+	             Alexey Skidanov, Sudhir Kumar.
+
+	Run began: Sun Apr 28 08:14:37 2019
+
+	Include fsync in write timing
+	Record Size 4 kB
+	File size set to 3145728 kB
+	O_DIRECT feature enabled
+	Setting no_unlink
+	No retest option selected
+	Command line used: iozone -e -r 4k -s 3G -i 1 -I -w -f /file -+n
+	Output is in kBytes/sec
+	Time Resolution = 0.000001 seconds.
+	Processor cache size set to 1024 kBytes.
+	Processor cache line size set to 32 bytes.
+	File stride size set to 17 * record size.
+                                                              random    random     bkwd    record    stride                                    
+              kB  reclen    write  rewrite    read    reread    read     write     read   rewrite      read   fwrite frewrite    fread  freread
+         3145728       4                      38576        0                                                                                  
+
+iozone test complete.
+
+
